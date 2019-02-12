@@ -70,7 +70,10 @@ def main():
     )
     parser.add_argument("config_path", help="path where the config is located")
     parser.add_argument(
-        "encoding", nargs="?", default="utf-8", help="path where the config is located"
+        "encoding",
+        nargs="?",
+        default="utf-8",
+        help="encoding if necessary, utf-8 is set as default",
     )
     args = parser.parse_args()
     perform_corruption(
