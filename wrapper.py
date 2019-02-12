@@ -43,7 +43,7 @@ def perform_corruption(input_path, output_path, config_file, encoding):
     )
     rec_dict = data_corruptor.corrupt_records(rec_dict)
     # Write result
-    with codecs.open(output_path, mode="w", encoding="utf-8") as outfile:
+    with codecs.open(output_path, mode="w", encoding=encoding) as outfile:
         header = "id"
         for v in attr_name_list:
             header += "," + v
