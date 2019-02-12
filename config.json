@@ -1,0 +1,77 @@
+{
+    "attributes": {
+        "area": {
+            "keyboard_corruptor": 0.7,
+            "missing_value_corruptor": 0.2,
+            "ocr_corruptor": 0.1,
+            "overall_prob": 0.4
+        },
+        "name": {
+            "keyboard_corruptor": 0.1,
+            "ocr_corruptor": 0.1,
+            "overall_prob": 0.2,
+            "phonetic_corruptor": 0.7,
+            "surname_misspell_corruptor": 0.1
+        },
+        "type": {
+            "keyboard_corruptor": 0.1,
+            "missing_value_corruptor": 0.1,
+            "ocr_corruptor": 0.1,
+            "overall_prob": 0.4,
+            "phonetic_corruptor": 0.7
+        }
+    },
+    "corruptors": [
+        {
+            "edit_corruptor": {
+                "delete_prob": 0.5,
+                "insert_prob": 0.5,
+                "position_function": "normal",
+                "substitute_prob": 0.0,
+                "transpose_prob": 0.0,
+                "type": "Edit"
+            }
+        },
+        {
+            "ocr_corruptor": {
+                "position_function": "normal",
+                "has_header_line": "False",
+                "lookup_file_name": "geco/lookup-files/ocr-variations.csv",
+                "type": "OCR"
+            }
+        },
+        {
+            "surname_misspell_corruptor": {
+                "has_header_line": "False",
+                "lookup_file_name": "geco/lookup-files/surname-misspell.csv",
+                "type": "Categorical"
+            }
+        },
+        {
+            "keyboard_corruptor": {
+                "col_prob": 0.5,
+                "position_function": "normal",
+                "row_prob": 0.5,
+                "type": "Keyboard"
+            }
+        },
+        {
+            "phonetic_corruptor": {
+                "has_header_line": "False",
+                "lookup_file_name": "geco/lookup-files/phonetic-variations.csv",
+                "type": "Phonetic"
+            }
+        },
+        {
+            "missing_value_corruptor": {
+                "type": "Missing"
+            }
+        }
+    ],
+    "max_dup_per_record": 3,
+    "max_modification_per_attr": 1,
+    "num_dup_distribution": "zipf",
+    "num_dup_rec": 4,
+    "num_modification_per_record": 2,
+    "unicode_encoding": "ascii"
+}
