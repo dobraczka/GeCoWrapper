@@ -1,12 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import json
+import unicodecsv
+import codecs
+import sys
+import argparse
+from config_reader import CorruptionConfig
 from geco import basefunctions
 from geco import attrgenfunct
 from geco import contdepfunct
 from geco import generator
 from geco import corruptor
-import json
-import unicodecsv
-import codecs
-from config_reader import CorruptionConfig
 
 rec_id_attr_name = "id"
 
@@ -22,7 +27,7 @@ def read_input_to_dict(input_path, encoding):
     return rec_dict, attr_name_list
 
 
-def perform_corruption(input_path, output_path, config_file, encoding="utf-8"):
+def perform_corruption(input_path, output_path, config_file, encoding):
     rec_dict, attr_name_list = read_input_to_dict(input_path, encoding)
     config = CorruptionConfig.read(config_file)
     data_corruptor = corruptor.CorruptDataSet(
@@ -50,4 +55,28 @@ def perform_corruption(input_path, output_path, config_file, encoding="utf-8"):
             outfile.write(row + "\n")
 
 
-perform_corruption("/tmp/artists.csv", "/tmp/artists_corrupted.csv", "config.json")
+def main():
+    global input_path
+    global output_path
+    global config_path
+    global encoding
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "input_path",
+        help="path where the file is located that contains the data that is to be corrupted",
+    )
+    parser.add_argument(
+        "output_path", help="path where the corrupted file should be written"
+    )
+    parser.add_argument("config_path", help="path where the config is located")
+    parser.add_argument(
+        "encoding", nargs="?", default="utf-8", help="path where the config is located"
+    )
+    args = parser.parse_args()
+    perform_corruption(
+        args.input_path, args.output_path, args.config_path, args.encoding
+    )
+
+
+if __name__ == "__main__":
+    main()
