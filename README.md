@@ -7,6 +7,9 @@ This repository contains a wrapper to make use of the corruption functions of ['
 You have to [download](https://dmm.anu.edu.au/geco/) and unpack GeCo in the directory of this repository.
 The directory of GeCo has to be named `geco`. And an empty file named `__init__.py` has to be added inside the `geco` directory.
 
+You also need `unicodecsv`, which can be installed using:
+`pip install unicodecsv'
+
 ## Usage
 Input files need to have `id` as first column.
 
@@ -23,3 +26,6 @@ positional arguments:
 optional arguments:
   -h, --help   show this help message and exit
 ```
+
+## Example
+`python wrapper.py example/input.csv example/output.csv example/config.json`
