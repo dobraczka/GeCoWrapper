@@ -3,12 +3,11 @@
 This repository contains a wrapper to make use of the corruption functions of ['GeCo - An online personal data Generator and Corruptor'](https://openresearch-repository.anu.edu.au/handle/1885/28255) by Tran, Khoi-Nguyen; Vatsalan, Dinusha; Christen, Peter
 
 ## Setup
-The script `setupGeCo.sh` will [download](https://dmm.anu.edu.au/geco/) and unpack GeCo in the directory of this repository.
-The directory of GeCo will be named `geco`. And an empty file named `__init__.py` will be added inside the `geco` directory.
+The script `setupGeCo.sh` will [download](https://dmm.anu.edu.au/geco/),unpack and setup GeCo to make this wrapper work.
 
 You also need `unicodecsv`, which can be installed using:
 
-`pip install unicodecsv'
+`pip install unicodecsv`
 
 ## Usage
 Input files need to have `id` as first column.
